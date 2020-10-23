@@ -2,9 +2,43 @@
 
 ## Project setup
 
-1. Creates project skeleton by using https://start.spring.io/
 
-    [Settings](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=11&groupId=com.delrony&artifactId=cake_factory&name=cake_factory&description=Manning%20Live%20Project%20with%20Spring&packageName=com.delrony.cake_factory&dependencies=devtools,web,mustache,lombok,data-jpa,h2)
-2. Used Visual Studio Code as IDE with the extension "Spring Boot Extension Pack".
-3. For frontend used [Start Bootstrap - Shop Homepage](https://github.com/StartBootstrap/startbootstrap-shop-homepage) repository.
+1. Get the source code of the project from Github.
+2. Open the project in Visual Studio (VS Code). "Spring Boot Extension Pack" extension is required.
+3. To start the postgres server, create a .env file with DB name and credentials. Here is an example:
+```
+POSTGRES_USER=db_cake
+POSTGRES_PASSWORD=easypass
+POSTGRES_DB=cake_factory
+```
 
+4. Start the postgres docker container
+```
+docker-compose up -d
+```
+
+5. In VS Code open the .vscode/lunch.json file. Provide the DB credentials as environment variable. For example:
+
+```
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CakeFactoryApplication<cake_factory>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.delrony.cake_factory.CakeFactoryApplication",
+            "projectName": "cake_factory",
+            "args": "",
+            "env": {
+                "SPRING_DATASOURCE_USERNAME": "db_cake",
+                "SPRING_DATASOURCE_PASSWORD": "easypass"
+            }
+        }
+    ]
+}
+
+```
+
+6. Start the application from VS Code.

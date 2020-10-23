@@ -36,3 +36,4 @@ out/
 ### Other files
 notes.txt
 bin/
+.env

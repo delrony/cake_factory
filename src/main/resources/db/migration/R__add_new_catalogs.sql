@@ -1,10 +1,4 @@
-DROP TABLE IF EXISTS catalog;
-
-create table if not exists catalog (
-  id varchar(5) not null,
-  title varchar(50) not null,
-  price decimal(10,2) not null
-);
+delete from catalog;
 
 insert into catalog (id, title, price) values ('abcr', 'All Butter Croissant', 0.75);
 insert into catalog (id, title, price) values ('ccr', 'Chocolate Croissant', 0.95);
